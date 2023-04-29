@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetAppCodeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="100dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+            </ImageView>
+
+            <!--Payment Textview            -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment"
+                android:textSize="25dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <!--Select User For Payment-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Select Contact"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="3.5"
+                    >
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Name "/>
+
+                        <TextView
+                            android:id="@+id/receive_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="User Name Here"
+                            android:layout_marginStart="10dp"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contact "/>
+
+                        <TextView
+                            android:id="@+id/receive_numver"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1234567890"
+                            android:layout_marginStart="10dp"
+                            android:textSize="17dp"
+                            android:textColor="@color/black"
+                            />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <Button
+                    android:id="@+id/select_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select"
+                    android:layout_weight="0.4"
+                    android:layout_gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+            <!--Question For verification-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Verification Question"/>
+            <TextView
+                android:id="@+id/security_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                />
+
+            <!--Answer For verification-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Verification Answer"/>
+            <EditText
+                android:id="@+id/security_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:hint="Enter Answer of Above Question"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                />
+
+
+            <!--Payment Amount-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount "/>
+
+                <EditText
+                    android:id="@+id/amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="User Amount Here"
+                    android:inputType="number"
+                    android:layout_marginStart="10dp"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    />
+
+            </LinearLayout>
+
+
+
+
+            <Button
+                android:id="@+id/btn_make_payment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Make Payment"
+                android:layout_marginBottom="50dp"/>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>
