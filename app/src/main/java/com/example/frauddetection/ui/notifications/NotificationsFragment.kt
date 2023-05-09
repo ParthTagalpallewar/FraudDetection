@@ -8,9 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.frauddetection.AddCard
+import com.example.frauddetection.EnterAppCode
+import com.example.frauddetection.MainActivity
 import com.example.frauddetection.databinding.FragmentNotificationsBinding
 import com.example.frauddetection.utils.*
 
@@ -46,6 +49,16 @@ class NotificationsFragment : Fragment() {
                 cardExpiry.text = sharedPref.getString(CardExpirationDate, "Card Expiry")
             }
 
+
+        }
+
+        binding.btnLogout.setOnClickListener {
+
+            Intent(requireContext(), EnterAppCode::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or  Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(this)
+                Toast.makeText(requireContext(), "User Logout Successfully!", Toast.LENGTH_SHORT).show()
+            }
 
         }
 

@@ -9,6 +9,7 @@ fun Context.toast(msg: String, time: Int = Toast.LENGTH_SHORT){
 
 const val storage = "SHAREDPREF"
 const val APP_CODE = "APP_CODE"
+const val ISLOGIN = "TRUE"
 
 const val CardNumber = "CardNumber"
 const val CardName = "CardName"

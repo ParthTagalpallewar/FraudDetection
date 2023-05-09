@@ -17,10 +17,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
+import com.example.frauddetection.PaymentActivity2
 import com.example.frauddetection.PaymentSuccessful
 import com.example.frauddetection.R
 import com.example.frauddetection.databinding.FragmentHomeBinding
@@ -53,65 +56,25 @@ class HomeFragment : Fragment() {
                 startActivityForResult(pickContact, 1);
             }
 
-            binding.apply {
-                securityQuestion.text = sharedPreferences.getString(CardValidityQuestion, "Question Not Present")
+            binding.btnMakePayment.setOnClickListener {
 
+                val number = binding.receiveNumver.text.toString()
 
-                btnMakePayment.setOnClickListener {
-                    val answer = securityAnswer.text.toString()
-
-                    if(answer == sharedPreferences.getString(CardValidityAnswer, "No Answer Set")){
-                        Intent(requireContext(), PaymentSuccessful::class.java).apply {
-                            startActivity(this)
-                        }
-                    }else{
-
-                        val fusedLocationClient =  LocationServices.getFusedLocationProviderClient(requireContext())
-                        if (ActivityCompat.checkSelfPermission(
-                                requireContext(),
-                                Manifest.permission.ACCESS_FINE_LOCATION
-                            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                                requireContext(),
-                                Manifest.permission.ACCESS_COARSE_LOCATION
-                            ) != PackageManager.PERMISSION_GRANTED
-                        ) {
-                          t("locaton permisson not found")
-                        }else{
-                            fusedLocationClient.lastLocation.addOnCompleteListener {
-                                if(it.result != null){
-
-                                    val location = it.result!!
-
-                                    val geocoder = Geocoder(
-                                        requireContext(),
-                                        Locale.getDefault()
-                                    )
-
-                                    val addresses: List<Address>? = geocoder.getFromLocation(
-                                        location.latitude, location.longitude, 1
-                                    )
-
-                                    val address = addresses?.get(0)?.getAddressLine(0)
-
-                                    val data = "" +
-                                            "Address - ${address} \n" +
-                                            "Latitute - ${location.latitude} \n" +
-                                            "Longitude - ${location.longitude} \n"
-
-                                    var phoneNumber: String = sharedPreferences.getString(CardUserNumber, "no")!!
-                                    sendSMS(phoneNumber, data)
-                                    sendSMS(phoneNumber, ("http://maps.google.com/maps?daddr=${location.latitude},${location.longitude}"))
-
-                                    t("Sms Send")
-                                }else{
-                                    t("Location not found")
-                                }
-                            }
-                        }
-
+                if(number == "1234567890"){
+                    Toast.makeText(requireContext(), "Please Select Contact Number", Toast.LENGTH_SHORT).show();
+                }else if(number[0] == '+' || number.isDigitsOnly() ){
+                    Intent(requireContext(), PaymentActivity2::class.java).apply {
+                        startActivity(this)
                     }
+                }else{
+                    Toast.makeText(requireContext(), "Please Select Contact Number", Toast.LENGTH_SHORT).show();
                 }
+
+
+
             }
+
+
 
         }
 
@@ -119,11 +82,7 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    fun sendSMS(phoneNumber: String?, message: String?) {
-        val smsManager: SmsManager = SmsManager.getDefault()
-        Log.e("XXX", "sendSMS: $phoneNumber")
-        smsManager.sendTextMessage(phoneNumber, null, message, null, null)
-    }
+
 
     override fun onStart() {
         super.onStart()

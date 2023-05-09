@@ -118,34 +118,9 @@
                     />
             </LinearLayout>
 
-            <!--Question For verification-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Verification Question"/>
-            <TextView
-                android:id="@+id/security_question"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                />
 
-            <!--Answer For verification-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Verification Answer"/>
-            <EditText
-                android:id="@+id/security_answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:hint="Enter Answer of Above Question"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                />
+
+
 
 
             <!--Payment Amount-->
@@ -181,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:text="Make Payment"
+                android:text="Next"
                 android:layout_marginBottom="50dp"/>
 
         </LinearLayout>

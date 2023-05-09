@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EnterAppCode">
+    tools:context=".SetAppCodeActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,8 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="100dp"
             android:orientation="vertical">
 
             <ImageView
@@ -25,44 +24,55 @@
 
             </ImageView>
 
+            <!--Payment Textview            -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verify \nApp-Code"
-                android:textSize="30dp"
-                android:layout_marginTop="40dp"
+                android:text="Payment"
+                android:textSize="25dp"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
+
+            <!--Question For verification-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="enter the app code here to verify user!!"
-                android:textSize="15dp"
-                android:layout_marginTop="20dp"
-
-                />
-
-
-
-
-            <EditText
-                android:id="@+id/et_app_code"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
+                android:text="Verification Question"/>
+            <TextView
+                android:id="@+id/security_question"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="    Enter Six Digit App Code"
-                android:textSize="15dp"
-                android:backgroundTint="@color/blue_200"
-                android:inputType="number"
-                android:drawableStart="@drawable/baseline_lock_24"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
                 />
+
+            <!--Answer For verification-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Verification Answer"/>
+            <EditText
+                android:id="@+id/security_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:hint="Enter Answer of Above Question"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                />
+
+
+            <!--Payment Amount-->
+
 
             <Button
-                android:id="@+id/btn_verify_code"
+                android:id="@+id/btn_make_payment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:text="Verify Code"
+                android:text="Make Payment"
                 android:layout_marginBottom="50dp"/>
 
         </LinearLayout>
